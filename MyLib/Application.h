@@ -9,23 +9,19 @@
 #include "Window.h"
 #include "Shaders/Shaders.h"
 
-/*Самый главный класс программы*/
 class Application{
 public:
+	Application() : window(nullptr), shaderProgram(nullptr) {};
+	~Application();
 
-		Application() : window(nullptr), shaderProgram(nullptr) {};
-		~Application();
+	bool init(int w, int h);
+	bool loadShaders();
 
-		bool init(int w, int h);
-		bool loadShaders();
+	void mainLoop(int program);
+	void getWindowSize(int &w, int &h);
 
-		void mainLoop(int program);
-
-		void getWindowSize(int &w, int &h);
 private:
-
 	Window *window; //TODO : smart pointers?
-
 	Shaders* shaderProgram;
 };
 
